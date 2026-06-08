@@ -31,12 +31,13 @@ header p {
   position: relative;
   display: inline-block;
   margin-top: 20px;
-  max-width: 600px;
+  height: 85vh; /* THIS MAKES THE CONTAINER FILL THE SCREEN */
 }
 
 .skeleton-img {
-  width: 100%;
-  height: auto;
+  height: 100%; /* THIS STRETCHES THE IMAGE TO FILL THE CONTAINER */
+  width: auto;
+  object-fit: contain;
   filter: drop-shadow(0px 0px 15px rgba(255, 255, 255, 0.8)); 
 }
 
@@ -57,7 +58,7 @@ header p {
   left: -8px;
   box-shadow: 0 0 10px rgba(253, 121, 168, 0.9);
   animation: pulse 1.5s infinite;
-  cursor: pointer; /* Changes the mouse to a hand to show it's clickable */
+  cursor: pointer; 
   transition: transform 0.2s;
 }
 
@@ -78,12 +79,11 @@ header p {
   display: flex;
   align-items: center;
   width: 250px;
-  /* Hidden by default */
   opacity: 0;
   visibility: hidden;
-  pointer-events: none; /* Prevents invisible buttons from being clicked */
-  transform: translateX(-15px) scale(0.9); /* Starts slightly shrunk and shifted */
-  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Bouncy pop-out animation */
+  pointer-events: none; 
+  transform: translateX(-15px) scale(0.9); 
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
 }
 
 .point-right { left: 10px; }
@@ -94,7 +94,6 @@ header p {
   transform: translateX(15px) scale(0.9);
 }
 
-/* This class gets added by JavaScript when the dot is clicked! */
 .target-point.active .label-wrapper {
   opacity: 1;
   visibility: visible;
@@ -103,10 +102,9 @@ header p {
 }
 
 .target-point.active {
-  z-index: 20; /* Brings the open label to the very front */
+  z-index: 20; 
 }
 
-/* The thin pointer arrow/line */
 .pointer-line {
   width: 60px;
   height: 3px;
@@ -132,7 +130,6 @@ header p {
   color: #0984e3; 
 }
 
-/* Styling the new bullet point facts */
 .info-content ul {
   margin: 5px 0 15px 0;
   padding-left: 18px;
