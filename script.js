@@ -168,10 +168,6 @@ document.getElementById('close-quiz-btn').addEventListener('click', () => {
   quizModal.classList.add('hidden');
 });
 
-document.getElementById('close-draw-btn').addEventListener('click', () => {
-  drawingModal.classList.add('hidden');
-});
-
 // --- DRAWING LOGIC ---
 document.getElementById('clear-btn').addEventListener('click', clearCanvas);
 
@@ -212,3 +208,26 @@ function stopDrawing() {
   isDrawing = false;
   ctx.beginPath();
 }
+
+// --- NEW SELF-GRADE LOGIC ---
+const drawingControls = document.getElementById('drawing-controls');
+const selfGradeBox = document.getElementById('self-grade-box');
+const passBtn = document.getElementById('pass-btn');
+const retryBtn = document.getElementById('retry-btn');
+
+document.getElementById('close-draw-btn').addEventListener('click', () => {
+  drawingControls.classList.add('hidden');
+  selfGradeBox.classList.remove('hidden');
+});
+
+retryBtn.addEventListener('click', () => {
+  clearCanvas();
+  selfGradeBox.classList.add('hidden');
+  drawingControls.classList.remove('hidden');
+});
+
+passBtn.addEventListener('click', () => {
+  drawingModal.classList.add('hidden');
+  selfGradeBox.classList.add('hidden');
+  drawingControls.classList.remove('hidden');
+});
